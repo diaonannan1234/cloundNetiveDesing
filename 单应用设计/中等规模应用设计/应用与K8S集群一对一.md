@@ -49,8 +49,17 @@ node node1 as "XXX应用-K8S集群" <<$cloudogu>> {
 !include <cloudogu/tools/k8s>
 
 node node1 as "通用子系统" <<$cloudogu>> {
-	DOGU_SMEAGOL(smeagol71, 网关) #ffffff
+	DOGU_SMEAGOL(smeagol71, 网关&入口网关Ingress&出口网关Egress) #ffffff
     DOGU_SMEAGOL(smeagol75, 服务注册&发现) #ffffff
+     DOGU_SMEAGOL(smeagol55, 熔断) #ffffff
+      DOGU_SMEAGOL(smeagol54, 负载均衡) #ffffff
+       DOGU_SMEAGOL(smeagol53, 请求路由) #ffffff
+        DOGU_SMEAGOL(smeagol52, 故障注入) #ffffff
+         DOGU_SMEAGOL(smeagol40, 故障处理) #ffffff
+         DOGU_SMEAGOL(smeagol41, 可视化) #ffffff
+         DOGU_SMEAGOL(smeagol42, 策略&遥测) #ffffff
+         DOGU_SMEAGOL(smeagol43, 规则引擎) #ffffff
+         
     DOGU_SMEAGOL(smeagol76, 日志采集) #ffffff
     DOGU_SMEAGOL(smeagol77, 服务度量) #ffffff
     DOGU_SMEAGOL(smeagol78,  长期任务&一次性任务) #ffffff
@@ -109,3 +118,82 @@ node node1 as "安全认证子系统" <<$auth>> {
 
 @enduml
 ```
+
+
+
+@endmindmap
+``` plantuml
+
+* 服务端鉴权
+
+``` plantuml
+@startmindmap
+*  服务端鉴权
+** 认证
+***  证书
+***  Token令牌
+***  OAuth2.0
+** 授权
+*** 网关认证过滤
+*** 网关转换认证协议
+*** 内部认证解析、加密、注册、创建
+*** 每服务前置拦截
+**** 实现方式
+***** Istio：四层
+***** AOP拦截器：六层
+** 配置
+*** 加密配置
+*** 环境配置
+
+
+@endmindmap
+``` plantuml
+
+* 客户端鉴权
+
+``` plantuml
+@startmindmap
+*  客户端鉴权
+** 认证
+***  用户名密码认证
+***  多因子认证
+*** 手机认证
+***  第三方认证
+*** 图片认证码
+** 授权
+*** 企业员工
+*** 企业资源
+*** 企业组织机构
+*** 权限模型
+**** RBAC-基于触键的访问控制(Role Based Access Control)
+***** RBAC0
+****** 用户
+****** 角色
+****** 权限
+***** RBAC1
+****** 用户
+****** 角色分层级
+****** 权限
+***** RBAC2
+****** 用户
+****** 角色
+****** 权限
+****** 静态职责分离SSD
+****** 互斥角色限制：同一个用户在两个互斥角色中只能选一个
+****** 基数限制：一个用户拥有的角色是有限的，一个角色拥有的资源也是有限的
+****** 先决条件限制：用户想获得更高级别的角色，必须拥有低级角色
+****** 动态职责分离DSD
+****** 动态的限制用户及其拥有的角色：如一个用户可以拥有两个角色，但只能激活一个角色。
+***** RBAC3
+****** RBAC3是RBAC1和RBAC2的合集，所以RBAC3既有角色分层，也包括可以增加各种限制
+***** RBAC扩展
+****** 用户组：用户组分配角色，再把用户加入用户组。这样用户除了拥有自身的权限外，还拥有了所属用户组的所有权限
+**** ABAC-基于属性的访问控制 (Attribute Based Access Control)
+***** Attribute属性
+***** Subject主体
+***** Object资源
+***** Operation对资源的操作
+***** Policy权限规则
+***** EnvironmentConditions条件上下文
+@endmindmap
+``` plantuml
