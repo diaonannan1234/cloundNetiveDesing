@@ -1,0 +1,41 @@
+{
+    "created_time": "2022-07-18T07:53:42Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2022-07-18T07:55:22Z",
+            "id": "20",
+            "modified_time": "2022-07-18T07:55:37Z",
+            "name": "通用子系统结构.md",
+            "signature": "53181943189995",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-07-18T07:59:07Z",
+            "id": "21",
+            "modified_time": "2022-07-18T08:29:15Z",
+            "name": "通用子系统-网关.md",
+            "signature": "74824283394763",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-07-18T08:35:39Z",
+            "id": "22",
+            "modified_time": "2022-07-19T01:02:41Z",
+            "name": "子系统关系统.md",
+            "signature": "80386266045275",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "15",
+    "modified_time": "2022-07-18T07:53:42Z",
+    "signature": "62725360521606",
+    "version": 3
+}
