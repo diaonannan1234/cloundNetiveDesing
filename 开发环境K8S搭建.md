@@ -10,7 +10,7 @@
    actor "高级开发工程师" as engh
    actor "测试工程师" as teng
    node "工程师开发环境-单机" as n0 {
-        [minikube] as m
+        [minikube/kind] as m
         [kubectl] as k
         [helm] as h
         [docker_desk] as d
@@ -29,7 +29,7 @@ node "多项目测试环境-高可用" as n2 {
    }
    
 package "生产环境-高可用" {
-   node "控制平面*1" as n31 {
+   node "控制平面*3" as n31 {
         [apiServer*3]
         [etcd*3]
         [contorller]
