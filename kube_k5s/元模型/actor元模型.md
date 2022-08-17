@@ -1,5 +1,4 @@
-# 用例角色定义
-
+# Actor元数据
 ``` plantuml
 @startmindmap
 *  Actor
@@ -13,4 +12,9 @@
 ** 测试:test
 ** 需求:?
 ** 管理:project
+** 客户端
+*** app:手机客户端
+*** web:浏览器
+*** object:物联网设备
 @endmindmap
+
