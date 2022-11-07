@@ -20,6 +20,7 @@
    actor "Web端" as a1
    actor "移动端" as a2
    actor "桌面端" as a3
+   actor "设备端" as a4
 package aa {
     node "公用服务—镜像" as n1 {
        [分布式ID] as p0
@@ -46,6 +47,7 @@ package aa {
     
    node "物资管理系统-SpringCloud" as n0 {
         [网关] as s1
+        [设备网关_kong] as s11
         [配置服务] as s2
         [服务注册与发现] as s3
        [GraphQL-Scheam注册] as s4
@@ -68,8 +70,9 @@ package aa {
 a1 ---> s1 : 访问
 a2 ---> s1 : 访问
 a3 ---> s1 : 访问
+a4 ---> s11 : 访问
 
-s1 ---> s8
+
 
 s8 ---> s9
 
@@ -89,9 +92,9 @@ s5 ---> s3 : 服务注册
 s6 ---> s3 : 服务注册
 s7 ---> s3 : 服务注册 
 
-s1 ---> s81 
-s1 ---> s82
-
+s1 ---> s81 : 分发
+s1 ---> s82 : 分发
+s1 ---> s8 : 分发
 s91 --> s5
 s91 --> s6
 s91 --> s7
