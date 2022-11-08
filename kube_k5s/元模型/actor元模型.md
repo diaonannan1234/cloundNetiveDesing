@@ -17,4 +17,4 @@
 *** web:浏览器
 *** object:物联网设备
 @endmindmap
-
+```
